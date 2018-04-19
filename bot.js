@@ -110,6 +110,7 @@ client.on('message', message => {
   }
     let prefix = client.prefix;
     if (!message.content.startsWith(prefix)){
+      try{
         for(var i=0;i<server_ini.banned.word.length;i++){
             if (server_ini.banned.word[i] !== "*"){
                 if (message.content.toLowerCase().indexOf(server_ini.banned.word[i]) !== -1){
@@ -121,6 +122,8 @@ client.on('message', message => {
                 }
             }
         }
+      }catch(ex){
+      }
     }
     if (!message.content.startsWith(prefix)) return;
     var msg;
