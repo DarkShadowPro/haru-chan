@@ -85,7 +85,7 @@ client.on('message', message => {
             fs.writeFileSync(`${user_dir}info.ini`, ini.stringify(user_ini));
         }
     }else{
-        fs.mkdirSync(user_dir);
+        //fs.mkdirSync(user_dir);
         user_ini = new_user;
         user_ini.info.name = message.author.username;
         user_ini.info.tag = message.author.tag;
@@ -99,7 +99,7 @@ client.on('message', message => {
             fs.writeFileSync(`${server_dir}info.ini`, ini.stringify(server_ini));
         }
     }else{
-        fs.mkdirSync(server_dir);
+        //fs.mkdirSync(server_dir);
         server_ini = new_server;
         server_ini.info.name = message.guild.name;
         fs.writeFileSync(`${server_dir}info.ini`, ini.stringify(server_ini));
