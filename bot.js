@@ -77,6 +77,7 @@ client.on('message', message => {
     if (message.author.bot === true) return;
     server_dir = `./servers/${message.guild.id}/`;
     user_dir = `./users/${message.author.id}/`;
+  try{
     if (fs.existsSync(user_dir)){
         if (fs.existsSync(`${user_dir}info.ini`)){
             user_ini = ini.parse(fs.readFileSync(`${user_dir}info.ini`, 'utf-8'));
@@ -104,6 +105,8 @@ client.on('message', message => {
         server_ini.info.name = message.guild.name;
         fs.writeFileSync(`${server_dir}info.ini`, ini.stringify(server_ini));
     }
+  }catch(ex){
+  }
     let prefix = client.prefix;
     if (!message.content.startsWith(prefix)){
         for(var i=0;i<server_ini.banned.word.length;i++){
