@@ -51,6 +51,7 @@ function is_enabled(command){
 }
 function is_command(b){
     if(cmd !== b) return false;
+    return true;
     return is_enabled(cmd);
 }
 function is_a_command(m_cmd){
